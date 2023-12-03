@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCU.com</title>
+    <link rel="stylesheet" href="styless.css">
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-container">
+        <section id="data-representations" class="data-representations">
+            <div class="data-representations-inner">
+                <canvas id="bar-chart"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <header class="header">
+        <div class="header-inner">
+            <h1 class="header-title">Chemical & Petrochemical Data Initiative</h1>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <h2>Welcome to the Chemical & Petrochemical Data Initiative</h2>
+            <p class="hero-subtitle">Enhancing Decision-Making through Data</p>
+            <a href="#get-started" class="cta-button">Get Started</a>
+            <a href="#contact" class="cta-button">Learn More</a>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="section-inner">
+            <h2>Contact Us</h2>
+            <p class="section-description">
+                If you have any inquiries or would like to collaborate with us on this initiative, please feel free to get in touch.
+            </p>
+            <a href="mailto:info@chemicaldatainitiative.com" class="cta-button">Email Us</a>
+        </div>
+    </section>
+
+    <section id="feedback" class="feedback">
+        <div class="feedback-inner">
+            <a href="#contact" class="cta-button-small">Feedback</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="footer-text">&copy; 2023 Government of India</p>
+    </footer>
+
+    <script>
+        // Sample data for the bar chart
+        const chartData = {
+            labels: ['Category 1', 'Category 2', 'Category 3', 'Category 4'],
+            datasets: [{
+                label: 'Sample Data',
+                data: [45, 32, 18, 57], // Imaginary data values
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // Get the canvas element and create the chart with animation
+        const ctx = document.getElementById('bar-chart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: chartData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                animation: {
+                    duration: 2000, // Set the animation duration (in milliseconds)
+                    easing: 'easeOutQuart' // Set the easing function
+                }
+            }
+        });
+    </script>
+</body>
+</html>
